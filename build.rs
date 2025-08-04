@@ -73,14 +73,15 @@ fn main() {
         .join("tests");
 
     fs::create_dir_all(&write_dir.join("std")).unwrap();
-    let crates_dir = out_dir
-        .parent()
-        .unwrap()
-        .parent()
-        .unwrap()
-        .parent()
-        .unwrap();
-    std::env::set_current_dir(&crates_dir).unwrap();
+    // Don't change directory - stay in current project directory
+    // let crates_dir = out_dir
+    //     .parent()
+    //     .unwrap()
+    //     .parent()
+    //     .unwrap()
+    //     .parent()
+    //     .unwrap();
+    // std::env::set_current_dir(&crates_dir).unwrap();
 
     // Use a separate target directory specifically for the WASM build
     // to avoid triggering the main build process again
